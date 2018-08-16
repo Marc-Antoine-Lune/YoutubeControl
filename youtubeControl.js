@@ -49,8 +49,10 @@ function recupYoutube(){
 				for(var i=0; i<5; i++){
 					var titre = tab['items'][i]['snippet']['title'];
 					var urlVideo= tab['items'][1]['id']['videoId'];
+					var miniature = tab['items'][i]['snippet']['thumbnails']['default']['url'];
 
-					document.getElementById("listeVideos").innerHTML += "<li><a href=https://www.youtube.com/watch?v=" + urlVideo + ">" + titre + "</a></li>";
+					
+					document.getElementById("listeVideos").innerHTML += "<li><img src=" + miniature + "><a href=https://www.youtube.com/watch?v=" + urlVideo + ">" + titre + "</a></li>";
 				}
 			}
 
