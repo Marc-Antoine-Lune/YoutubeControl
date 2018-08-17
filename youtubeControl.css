@@ -1,5 +1,6 @@
 body{
-	background-color: #619CC9;
+	background-color: #fafafa;
+	font-family: 'Roboto','Noto',sans-serif;
 
 }
 #titre{
@@ -9,22 +10,59 @@ body{
 
 #recherche{
 	
-	width: 100px;
+	width: 200px;
 	margin-left: auto;
 	margin-right: auto;
+	text-align: center;
 
 }
 
 .SS{
 	display: inline-block;
 	padding: 30px 45px;
-	background-color: blue;
-	color: white;
-	border: none;
+	background-color: #d3d3d3;
+	color: #333;
+	border: solid 1px;
+	
+	border-color: #333;
 	text-align: center;
 	text-decoration: none;
+	margin-top:10px;
 	margin-bottom: 15px;
 	margin-right: auto;
 	margin-left: auto; 
+	font-family: 'Roboto','Noto',sans-serif;
+	font-size: 25px;
+}
+
+#rechercheVocale{
+	width: 200px;
+	height: 32px;
+	
+	margin-left: 1px;
+
+
+}
+
+.contenuVideo{
+	float: right;
+	width: 200px;
+	height: 300px;
+	text-align: center;
+
+}
+
+.contenuVideo a{
+
+	text-decoration: none;
+	color: black;	
+}
+
+#listeVideos{
+	width: 1000px;
+	height: 1000px;
+
+	margin-right: auto;
+	margin-left: auto;
 
 }
