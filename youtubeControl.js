@@ -18,7 +18,16 @@
 
 	}
 
+function initLecteur(){
 	
+				var tag = document.createElement('script');
+
+			      tag.src = "https://www.youtube.com/iframe_api";
+			      var firstScriptTag = document.getElementsByTagName('script')[0];
+			      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+}
+
+
 
 
 function demarer(){
@@ -28,7 +37,7 @@ function demarer(){
 	window.speechSynthesis.speak(messageEntree);
 	
 	
-		recognition.start()
+	recognition.start();
 
 	
 	setTimeout(function(){
@@ -38,12 +47,21 @@ function demarer(){
 			recherche();
 
 		}else if(demande.includes('lire')){
+			messagetitreVideos = new SpeechSynthesisUtterance("Voici les titres!");
+			window.speechSynthesis.speak(messagetitreVideos);
 			lireTitres();
-		}}			, 7000);
+		}else if(demande.includes('lance')){
+			playVid();
+		}
+
+
+
+
+	}, 8000);
 
 
 }
-
+var urlVideo=[];
 
 
 function recupYoutube(){
@@ -63,13 +81,17 @@ function recupYoutube(){
 
 				for(var i=0; i<10; i++){
 					var titre = tab['items'][i]['snippet']['title'];
-					var urlVideo= tab['items'][1]['id']['videoId'];
+					urlVideo[i]= tab['items'][i]['id']['videoId'];
 					var miniature = tab['items'][i]['snippet']['thumbnails']['default']['url'];
 
 					
-					document.getElementById("listeVideos").innerHTML += "<div class='contenuVideo'><img src=" + miniature + "><br><a href=https://www.youtube.com/watch?v=" + urlVideo + "><span class='titreVideos'>" + titre + "</span></a></div>";
-				}
+					document.getElementById("listeVideos").innerHTML += "<div class='contenuVideo'><div  id='video" + i + "' ></div><br> <span class='titreVideos'>" + titre + "</span></div>";
+					
+
+				} initLecteur();
 			}}
+
+
 
 function lireTitres(){
 	recognition.stop();
@@ -84,14 +106,64 @@ function lireTitres(){
 	}
 	
 	
-	setTimeout("demarer()", 40000);
+	setTimeout("demarer()", 55000);
 }
 
 function recherche(){
+	var messageEntree = new SpeechSynthesisUtterance('Que voulez vous rechercher');
+	window.speechSynthesis.speak(messageEntree);
+
 	document.getElementById("rechercheVocale").value="";
-	//recognition.start();
-	setTimeout("recupYoutube(); recognition.stop();", 5000);
-	setTimeout("demarer()", 10000);
 	
+	setTimeout("recupYoutube(); recognition.stop();", 7000);
+	setTimeout("demarer()", 12000);
+	
+
+}
+
+
+var player=[];
+
+
+
+function onYouTubeIframeAPIReady() { 
+		
+		for(var i=0; i<10; i++){
+			
+		 player[i] = new YT.Player('video'+ i, {
+		 	height: '200',
+          width: '200',
+		 	videoId: `${urlVideo[i]}`,
+		 	
+
+										});
+		
+		}
+}
+
+
+function playVid(){
+	var demande = document.getElementById("rechercheVocale").value;
+	var last = demande.substring(demande.length - 1);
+	console.log(last);
+	last = Number(last) - 1;
+	
+	console.log(last);
+	player[last].playVideo();
+
+
+}
+
+
+function compter(){
+	var compte = 9;
+
+	var horloge = window.setInterval(function (){
+		compte -= 1;
+		document.getElementById("compteArebourd").innerHTML = `${compte}`;
+		if(compte == 0) {console.log(compte);
+			clearInterval(horloge)};
+		
+	}, 1000)
 
 }
