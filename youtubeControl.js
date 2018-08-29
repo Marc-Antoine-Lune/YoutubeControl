@@ -31,12 +31,11 @@ function initLecteur(){
 
 
 function demarer(){
+	
 	var messageEntree = new SpeechSynthesisUtterance('Que puis je faire pour vous?');
 	var voices = window.speechSynthesis.getVoices();
 	
 	window.speechSynthesis.speak(messageEntree);
-	
-	
 	recognition.start();
 
 	
@@ -52,7 +51,14 @@ function demarer(){
 			lireTitres();
 		}else if(demande.includes('lance')){
 			playVid();
-		}
+		}else if(demande.includes('stop')){
+			stopVid();
+			recognition.stop();
+			setTimeout("demarer()", 4000);}
+
+		}else{
+			recognition.stop();
+			setTimeout("demarer()", 4000);}
 
 
 
@@ -62,7 +68,7 @@ function demarer(){
 
 }
 var urlVideo=[];
-
+var compteur = 0;
 
 function recupYoutube(){
 		var x = document.getElementById("rechercheVocale");
@@ -76,6 +82,7 @@ function recupYoutube(){
 		
 
 			request.onload = function(){
+				
 				var tab = request.response;
 				document.getElementById("listeVideos").innerHTML = "";
 
@@ -88,7 +95,13 @@ function recupYoutube(){
 					document.getElementById("listeVideos").innerHTML += "<div class='contenuVideo'><div  id='video" + i + "' ></div><br> <span class='titreVideos'>" + titre + "</span></div>";
 					
 
-				} initLecteur();
+				} if(compteur == 0){
+					console.log("test1");
+					initLecteur();}
+					else{
+					console.log("test2");
+					 onYouTubeIframeAPIReady(); }
+					 compteur +=1;
 			}}
 
 
@@ -112,7 +125,9 @@ function lireTitres(){
 function recherche(){
 	var messageEntree = new SpeechSynthesisUtterance('Que voulez vous rechercher');
 	window.speechSynthesis.speak(messageEntree);
-
+	
+	
+	videPlayer();
 	document.getElementById("rechercheVocale").value="";
 	
 	setTimeout("recupYoutube(); recognition.stop();", 7000);
@@ -150,6 +165,7 @@ function playVid(){
 	
 	console.log(last);
 	player[last].playVideo();
+	recognition.stop();
 
 
 }
@@ -165,5 +181,23 @@ function compter(){
 			clearInterval(horloge)};
 		
 	}, 1000)
+
+}
+
+function videPlayer(){
+	for(var i=0; i<10; i++){
+		player[i]="";
+
+
+	}
+
+}
+
+
+function stopVid(){
+	for(var i=0; i<10; i++){
+			
+		 player[i].stopVideo();}
+
 
 }
