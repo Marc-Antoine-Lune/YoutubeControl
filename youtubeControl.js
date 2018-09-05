@@ -54,11 +54,11 @@ function demarer(){
 		}else if(demande.includes('stop')){
 			stopVid();
 			recognition.stop();
-			setTimeout("demarer()", 4000);}
+			setTimeout("demarer()", 4000)
 
 		}else{
 			recognition.stop();
-			setTimeout("demarer()", 4000);}
+			setTimeout("demarer()", 4000)}
 
 
 
