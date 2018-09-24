@@ -36,7 +36,7 @@ function demarer(){
 	var voices = window.speechSynthesis.getVoices();
 	
 	window.speechSynthesis.speak(messageEntree);
-	recognition.start();
+	setTimeout("recognition.start()", 2000);
 
 	
 	setTimeout(function(){
@@ -132,7 +132,7 @@ function recherche(){
 	videPlayer();
 	document.getElementById("rechercheVocale").value="";
 	
-	setTimeout("recupYoutube(); recognition.stop();", 7000);
+	setTimeout("recupYoutube(); recognition.stop();", 8500);
 	setTimeout("demarer()", 12000);
 	
 
