@@ -108,11 +108,12 @@ function recupYoutube(){
 
 
 function lireTitres(){
+	
 	recognition.stop();
 	var titre= document.getElementsByClassName('titreVideos');
 	var voices = window.speechSynthesis.getVoices();
 	titre.lang='fr-FR';
-	
+	document.getElementById("rechercheVocale").value="";
 	for(var i=0; i<titre.length; i++){
 		var message = new SpeechSynthesisUtterance(titre[i].innerHTML);
 		window.speechSynthesis.speak(message);
