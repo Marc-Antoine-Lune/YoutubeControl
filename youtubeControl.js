@@ -127,7 +127,7 @@ function recherche(){
 	
 	var messageEntree = new SpeechSynthesisUtterance('Que voulez vous rechercher');
 	window.speechSynthesis.speak(messageEntree);
-	setTimeout("recognition.start()", 1500);
+	setTimeout("recognition.start()", 3000);
 	
 	videPlayer();
 	document.getElementById("rechercheVocale").value="";
