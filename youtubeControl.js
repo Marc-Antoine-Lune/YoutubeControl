@@ -43,6 +43,7 @@ function demarer(){
 		var demande = document.getElementById("rechercheVocale").value;
 		console.log(demande);
 		if(demande.includes("recherche")){
+			recognition.stop();
 			recherche();
 
 		}else if(demande.includes('lire')){
