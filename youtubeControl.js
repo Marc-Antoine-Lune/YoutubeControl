@@ -44,7 +44,7 @@ function demarer(){
 		console.log(demande);
 		if(demande.includes("recherche")){
 			recognition.stop();
-			recherche();
+			setTimeout("recherche()", 3000);
 
 		}else if(demande.includes('lire')){
 			messagetitreVideos = new SpeechSynthesisUtterance("Voici les titres!");
