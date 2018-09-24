@@ -88,7 +88,7 @@ body{
 	line-height: 80px;
     }
 
-  @media only screen and (max-width: 800px){
+  @media only screen and (max-width: 640px){
 
   body{
 	background-color: #99D3FF;
@@ -98,7 +98,7 @@ body{
 
 .SS{
 
-	padding: 125px 175px;
+	padding: 75px 100px;
 	background-color: #99D3FF;
 	color: white;
 	border: solid 1px;
@@ -118,7 +118,7 @@ body{
 
 #recherche{
 	
-	width: 800px;
+	width: 500px;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
@@ -153,6 +153,11 @@ body{
 	border: none;
 	font-size: 30px;
 
+
+}
+#titre{
+	text-align:center;
+	color: white;
 
 }
 
