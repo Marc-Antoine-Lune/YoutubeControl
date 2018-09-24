@@ -108,7 +108,7 @@ function recupYoutube(){
 
 
 function lireTitres(){
-	
+
 	recognition.stop();
 	var titre= document.getElementsByClassName('titreVideos');
 	var voices = window.speechSynthesis.getVoices();

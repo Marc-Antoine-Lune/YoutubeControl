@@ -87,3 +87,73 @@ body{
 	vertical-align: center;
 	line-height: 80px;
     }
+
+  @media only screen and (max-width: 800px){
+
+  body{
+	background-color: #99D3FF;
+	font-family: 'Roboto','Noto',sans-serif;
+
+}
+
+.SS{
+
+	padding: 125px 175px;
+	background-color: #99D3FF;
+	color: white;
+	border: solid 1px;
+	
+	border-color: white;
+	text-align: center;
+	text-decoration: none;
+	margin-top:10px;
+	margin-bottom: 15px;
+	margin-left: 0px;
+	
+	font-family: 'Roboto','Noto',sans-serif;
+	font-size: 50px;
+	
+}
+
+
+#recherche{
+	
+	width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	background-color: #99D3FF;
+
+}
+#listeVideos{
+	width: 400px;
+	height: 1000px;
+	background-color: #99D3FF;
+	margin-right: auto;
+	margin-left: auto;
+
+}
+
+.contenuVideo{
+	float: right;
+	width: 400px;
+	height: 300px;
+	text-align: center;
+	color: white;
+	border: solid 1px white;
+
+}
+
+#rechercheVocale{
+	width: 400px;
+	height: 32px;
+	color: white;
+	background-color: #99D3FF;
+	margin-left: 1px;
+	border: none;
+	font-size: 30px;
+
+
+}
+
+}
